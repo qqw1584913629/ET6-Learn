@@ -1,0 +1,326 @@
+syntax = "proto3";
+package ET;
+
+//ResponseType ObjectQueryResponse
+message ObjectQueryRequest // IActorRequest
+{
+	int32 RpcId = 90;
+	int64 Key = 1;
+	int64 InstanceId = 2;
+}
+
+//ResponseType A2M_Reload
+message M2A_Reload // IActorRequest
+{
+	int32 RpcId = 90;
+}
+
+message A2M_Reload // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+}
+
+//ResponseType G2G_LockResponse
+message G2G_LockRequest // IActorRequest
+{
+	int32 RpcId = 90;
+	int64 Id = 1;
+	string Address = 2;
+}
+
+message G2G_LockResponse // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+}
+
+//ResponseType G2G_LockReleaseResponse
+message G2G_LockReleaseRequest // IActorRequest
+{
+	int32 RpcId = 90;
+	int64 Id = 1;
+	string Address = 2;
+}
+
+message G2G_LockReleaseResponse // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+}
+
+//ResponseType ObjectAddResponse
+message ObjectAddRequest // IActorRequest
+{
+	int32 RpcId = 90;
+	int64 Key = 1;
+	int64 InstanceId = 2;
+}
+
+message ObjectAddResponse // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+}
+
+//ResponseType ObjectLockResponse
+message ObjectLockRequest // IActorRequest
+{
+	int32 RpcId = 90;
+	int64 Key = 1;
+	int64 InstanceId = 2;
+	int32 Time = 3;
+}
+message ObjectLockResponse // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+}
+
+//ResponseType ObjectUnLockResponse
+message ObjectUnLockRequest // IActorRequest
+{
+	int32 RpcId = 90;
+	int64 Key = 1;
+	int64 OldInstanceId = 2;
+	int64 InstanceId = 3;
+}
+message ObjectUnLockResponse // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+}
+
+//ResponseType ObjectRemoveResponse
+message ObjectRemoveRequest // IActorRequest
+{
+	int32 RpcId = 90;
+	int64 Key = 1;
+}
+message ObjectRemoveResponse // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+}
+
+//ResponseType ObjectGetResponse
+message ObjectGetRequest // IActorRequest
+{
+	int32 RpcId = 90;
+	int64 Key = 1;
+}
+message ObjectGetResponse // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+
+	int64 InstanceId = 1;
+}
+
+//ResponseType G2R_GetLoginKey
+message R2G_GetLoginKey // IActorRequest
+{
+	int32 RpcId = 90;
+	string Account = 1;
+}
+
+message G2R_GetLoginKey // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+
+	int64 Key = 1;
+	int64 GateId = 2;
+}
+
+message M2M_UnitTransferResponse // IActorResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	int64 NewInstanceId = 4;
+}
+
+message G2M_SessionDisconnect // IActorLocationMessage
+{
+	int32 RpcId = 90;
+}
+
+//ResponseType L2A_LoginAccountResponse
+message A2L_LoginAccountRequest // IActorRequest
+{
+	int32 RpcId = 90;
+	int64 AccountId = 1;
+}
+
+message L2A_LoginAccountResponse // IActorResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+}
+
+
+//ResponseType G2L_DisconnectGateUnit
+message L2G_DisconnectGateUnit // IActorRequest
+{
+	int32 RpcId = 90;
+	int64 AccountId = 1;
+}
+
+
+message G2L_DisconnectGateUnit // IActorResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+}
+
+
+
+//ResponseType R2A_GetRealmKey
+message A2R_GetRealmKey // IActorRequest
+{
+    int32 RpcId       = 90;
+    int64 AccountId   = 1;
+}
+
+
+message R2A_GetRealmKey // IActorResponse
+{
+    int32 RpcId = 90;
+    int32 Error = 91;
+    string Message = 92;
+
+    string RealmKey = 1;
+}
+
+
+//ResponseType G2R_GetLoginGateKey
+message R2G_GetLoginGateKey // IActorRequest
+{
+	int32 RpcId = 90;
+	int64 AccountId = 1;
+}
+
+message G2R_GetLoginGateKey // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+
+	string GateSessionKey = 1;
+}
+
+
+//ResponseType L2G_AddLoginRecord
+message G2L_AddLoginRecord // IActorRequest
+{
+    int32 RpcId       = 90;
+    int64 AccountId  = 1;
+	int32 ServerId = 2;
+}
+
+message L2G_AddLoginRecord // IActorResponse
+{
+    int32 RpcId = 90;
+    int32 Error = 91;
+    string Message = 92;
+}
+
+
+//ResponseType M2G_RequestEnterGameState
+message G2M_RequestEnterGameState // IActorLocationRequest
+{
+    int32 RpcId = 90;
+}
+
+
+message M2G_RequestEnterGameState // IActorLocationResponse
+{
+    int32 RpcId = 90;
+    int32 Error = 91;
+    string Message = 92;
+}
+
+
+//ResponseType M2G_RequestExitGame
+message G2M_RequestExitGame // IActorLocationRequest
+{
+    int32 RpcId = 90;
+}
+
+
+message M2G_RequestExitGame // IActorLocationResponse
+{
+    int32 RpcId = 90;
+    int32 Error = 91;
+    string Message = 92;
+}
+
+
+//ResponseType L2G_RemoveLoginRecord
+message G2L_RemoveLoginRecord // IActorRequest
+{
+    int32 RpcId       = 90;
+    int64 AccountId  = 1;
+	int ServerId = 2;
+}
+
+message L2G_RemoveLoginRecord // IActorResponse
+{
+    int32 RpcId = 90;
+    int32 Error = 91;
+    string Message = 92;
+}
+
+//--------------------Player cache related protobuf--------------------
+//four types cache protobuf: add | update | delete | get
+// "O" is Other SceneType, "U" is UnitCache
+//ResponseType U2O_AddOrUpdateUnit
+message O2U_AddOrUpdateUnit // IActorRequest
+{
+	int32 RpcId = 90;
+
+	int64 UnitId = 1;
+	repeated string EntityTypes = 2;
+	repeated bytes EntityBytes = 3;
+}
+message U2O_AddOrUpdateUnit // IActorResponse
+{
+	int32 RpcId = 90;
+    int32 Error = 91;
+    string Message = 92;
+}
+//Get UnitCache
+//Because GetUnitCache will return a lot Entity, so U2O_GetUnit response protobuf in MongoMessage.proto
+//ResponseType U2O_GetUnit
+message O2U_GetUnit // IActorRequest
+{
+	int32 RpcId = 90;
+	int64 UnitId = 1;
+	repeated string ComponentNameList = 2;//Belong to unit component names
+}
+
+//Delete UnitCache
+//ResponseType U2O_DeleteUnit
+message O2U_DeleteUnit // IActorRequest
+{
+	int32 RpcId = 90;
+	int64 UnitId = 1;
+}
+message U2O_DeleteUnit // IActorResponse
+{
+	int32 RpcId = 90;
+    int32 Error = 91;
+    string Message = 92;
+}
